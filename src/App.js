@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { restElement } from '@babel/types';
 
 function App() {
+  const [allItems, addItem] = useState([]);
+  const [item, setItem] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addItem([...allItems, item]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form onSubmit = {handleSubmit}>
+      <input 
+      value={item}
+      onChange={e => setItem(e.target.value)}
+      />
+      <strong>
+        <p>Current item is: {item}</p>
+      </strong>
+      <strong>
+        <ul>
+          All items are: {allItems.map((i) => {
+            return(
+              <li key={i}>
+                {i}
+              </li>
+            );
+          })}
+        </ul>
+      </strong>
+    </form>
   );
 }
 
