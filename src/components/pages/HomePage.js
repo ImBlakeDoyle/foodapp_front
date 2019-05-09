@@ -1,9 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function HomePage() {
     return(
         <div>
-            <h1>This is the home page!</h1>
+            <Link to="/item/new">
+                <button>Add a new item</button>
+            </Link>
+            <Link to="/item/all">
+                <button>View all items</button>
+            </Link>
         </div>
     );
 }
