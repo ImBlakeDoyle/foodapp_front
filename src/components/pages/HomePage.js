@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../../styles/Home.css'
 
 function HomePage() {
     return(
-        <div>
+        <div className="container">
             <Link to="/item/new">
-                <button>Add a new item</button>
+                <button className="btn btn-primary" id="button1">Add a new item</button>
             </Link>
             <Link to="/item/all">
-                <button>View all items</button>
+                <button className="btn btn-success" id="button2">View all items</button>
             </Link>
         </div>
     );

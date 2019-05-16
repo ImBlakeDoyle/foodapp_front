@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-around;
+    height: 100vh;
+    margin: 0;
+}
+
+.btn.btn-primary{
+    width: 500px;
+    height: 250px;
+    font-size: 40px;
+}
+
+.btn.btn-success{
+    width: 500px;
+    height: 250px;
+    font-size: 40px;
+}
+
+html, body{
+    overflow: hidden;
+}
+

@@ -23,6 +23,10 @@
   color: #61dafb;
 }
 
+html{
+  overflow: hidden;
+}
+
 body {
   background-color: rgb(0, 162, 255);
 }
@@ -35,7 +39,6 @@ p, ul{
   padding-left: 0;
 }
 
-
 input{
   /* display: block; */
   margin-bottom: 10px;
@@ -43,7 +46,6 @@ input{
 label{
   display: block;
 }
-
 
 #nameInput{
   width: 150px;

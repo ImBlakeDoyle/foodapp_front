@@ -1,18 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import './../../App.css'
 
 function ItemForm(){
-    // const [name, setName] = useState("");
-    // const [quantity, setQuantity] = useState(0);
-    // const [category, setCategory] = useState("");
-    // const [weight, setWeight] = useState(0);
-    // const [measurement, setMeasurement] = useState("");
-    // const [price, setPrice] = useState(0);
-    // const [protein, setProtein] = useState(0);
-    // const [carbs, setCarbs] = useState(0);
-    // const [fat, setFat] = useState(0);
-    // const [sugar, setSugar] = useState(0);
 
     const [formData, setFormData] = useState({
         name: '',
