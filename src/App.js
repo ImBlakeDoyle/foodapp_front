@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import './App.css';
 import HomePage from "./components/pages/HomePage";
 import ItemIndex from "./components/pages/ItemIndex";
 import ItemForm from './components/forms/ItemForm';

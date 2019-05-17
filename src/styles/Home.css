@@ -1,4 +1,4 @@
-.container {
+.home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,16 +11,51 @@
 .btn.btn-primary{
     width: 500px;
     height: 250px;
-    font-size: 40px;
+    font-size: 60px;
+    font-weight: bold;
+    border-radius: 40px;
+    font-family: "Architects Daughter";
+    color: rgb(157, 207, 255);
+    box-shadow: 0px 0px 20px 0px rgba(36,90,227,1);
 }
 
 .btn.btn-success{
     width: 500px;
     height: 250px;
-    font-size: 40px;
+    font-size: 60px;
+    font-weight: bold;
+    border-radius: 40px;
+    font-family: "Architects Daughter";
+    color: rgb(162, 255, 178);
+    box-shadow: 0px 0px 20px 0px rgba(51,133,34,1);
 }
 
 html, body{
+    height: 100vh;
     overflow: hidden;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 68%, rgba(129,200,255,0.65) 72%, rgba(149,126,255,0.7) 76%, rgba(211,125,250,0.75) 80%, rgba(255,130,229,0.8) 84%, rgba(255,124,163,0.85) 88%, rgba(255,135,121,0.9) 92%, rgba(255,210,127,0.95) 96%, rgba(255,241,0,1) 100%);
+    background-repeat: no-repeat;
 }
+
+#title {
+    font-size: 60px;
+    letter-spacing: 20px;
+    width: 140%;
+    text-align: center;
+    font-family: "Architects Daughter";
+    font-weight: bold;
+}
+
+#title-emoji {
+    animation-name: bounce;
+    animation-duration: 5s;
+}
+
+@keyframes bounce {
+    0%   {left:0px; top:0px;}
+    25%  {left:200px; top:0px;}
+    50%  {left:200px; top:200px;}
+    75%  {left:0px; top:200px;}
+    100% {left:0px; top:0px;}
+  }
 
