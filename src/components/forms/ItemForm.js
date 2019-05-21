@@ -73,8 +73,9 @@ function ItemForm(){
                 <div className="row">
                     <div className="col">
                         <div className="row">
-                            <label className="form-title">Quantity</label>
+                            <label id="quantity-label">Quantity</label>
                         </div>
+                        <div className="row weight-form">
                             <span className="label-emoji">🤷‍</span>
                             <input
                                 value={quantity}
@@ -83,16 +84,20 @@ function ItemForm(){
                                 onChange={e => onChange(e)}
                                 name="quantity"
                                 className="dual-form-input"
+                                id="quantity-input"
                             />
+                        </div>
                     </div>
                     <div className="col">
-                        <div className="row" id="weight-form">
-                            <label className="form-title">Weight total</label>
+                        <div className="row">
+                            <label id="weight-label">Weight total</label>
                         </div>
-                        <div className="row" id="weight-form">
+                        <div className="row weight-form">
                             <span className="label-emoji">⚖️</span>
                             <input
                                 value={weight}
+                                type="number"
+                                min="0"
                                 onChange={e => onChange(e)}
                                 name="weight"
                                 className="dual-form-input"
@@ -112,50 +117,82 @@ function ItemForm(){
                 </div>
             </div>
 
+            <div className="container form-field">
+                <div className="row">
+                    <div className="col">
+                        <div>
+                            <div className="row">
+                                <label className="quad-title">Protein</label>
+                            </div>
+                            <div className="row nutritional-form">
+                                <span className="label-emoji">🍖</span>
+                                <input
+                                    value={protein}
+                                    onChange={e => onChange(e)}
+                                    name="protein"
+                                    className="quad-form-input"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col">
+                        <div>
+                            <div className="row">
+                                <label className="quad-title">Fat</label>
+                            </div>
+                            <div className="row nutritional-form">
+                                <span className="label-emoji">🍔</span>
+                                <input
+                                    value={fat}
+                                    onChange={e => onChange(e)}
+                                    name="fat"
+                                    className="quad-form-input"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col">
+                        <div>
+                            <div className="row">
+                                <label className="quad-title">Carbs</label>
+                            </div>
+                            <div className="row nutritional-form">
+                                <span className="label-emoji">🍚</span>
+                                <input
+                                    value={carbs}
+                                    onChange={e => onChange(e)}
+                                    name="carbs"
+                                    className="quad-form-input"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col">
+                        <div>
+                            <div className="row">
+                                <label className="quad-title">Sugar</label>
+                            </div>
+                            <div className="row nutritional-form">
+                                <span className="label-emoji">🍭</span>
+                                <input
+                                    value={sugar}
+                                    onChange={e => onChange(e)}
+                                    name="sugar"
+                                    className="quad-form-input"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div>
-                <span>🍖</span>
-                <label>Protein:</label>
-                <input
-                    value={protein}
-                    onChange={e => onChange(e)}
-                    name="protein"
-                    className="formInput"
-                />
-            </div>
-            <div>
-                <span>🍔</span>
-                <label>Fat:</label>
-                <input
-                    value={fat}
-                    onChange={e => onChange(e)}
-                    name="fat"
-                    className="formInput"
-                />
-            </div>
-            <div>
-                <span>🍚</span>
-                <label>Carbs:</label>
-                <input
-                    value={carbs}
-                    onChange={e => onChange(e)}
-                    name="carbs"
-                    className="formInput"
-                />
-            </div>
-            <div>
-                <span>🍭 </span>
-                <label>Sugar:</label>
-                <input
-                    value={sugar}
-                    onChange={e => onChange(e)}
-                    name="sugar"
-                    className="formInput"
-                />
-            </div>
-            <div>
-                <span>💸</span>
-                <label>Total Price:</label>
+                <span className="label-emoji">💸</span>
+                <label>Price: $</label>
                 <input
                     value={price}
                     onChange={e => onChange(e)}

@@ -66,7 +66,7 @@ label{
 .formInput{
   border:1px solid rgb(158, 158, 158);
   border-radius: 10px;
-  height: 35px;
+  padding-left: 10px;
 }
 
 #dual-form-input{
@@ -76,12 +76,13 @@ label{
 .dual-form-input{
   border:1px solid rgb(158, 158, 158);
   border-radius: 10px;
-  height: 35px;
+  padding-left: 10px;
   width: 100px;
 }
 
 .label-emoji{
   font-size: 1.75em;
+  margin-right: 10px;
 }
 
 .duo-form{
@@ -125,8 +126,44 @@ label{
   text-align-last: center;
 }
 
-#weight-form{
+.weight-form{
   display: flex;
-  width: 400px;
   justify-content: center; 
+  flex-wrap: nowrap;
+  width: 220px;
+}
+
+.nutritional-form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 150px;
+}
+
+#quantity-input {
+  width: 70px;
+  text-align: center;
+}
+
+#quantity-label{
+  margin-left: 100px;
+}
+
+#weight-label{
+  margin-left: 63px;
+}
+
+.duo-title {
+  margin: auto;
+}
+
+.quad-title {
+  margin-left: 70px;
+}
+
+.quad-form-input{
+  border:1px solid rgb(158, 158, 158);
+  border-radius: 10px;
+  padding-left: 10px;
+  width: 70px;
 }
