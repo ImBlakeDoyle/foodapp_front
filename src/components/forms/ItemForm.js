@@ -58,12 +58,13 @@ function ItemForm(){
                         className="formInput"
                         id="category-field"
                         onChange={e => onChange(e)}>
-                            <option value="vegetable">Vegetable</option>
-                            <option value="fruit">Fruit</option>
-                            <option value="meat">Meat</option>
-                            <option value="dairy">Dairy</option>
-                            <option value="carbs">Carbs</option>
-                            <option value="snack">Snack</option>
+                            <option value="vegetable">🥕 Vegetable 🍅</option>
+                            <option value="fruit">🍇 Fruit 🥝</option>
+                            <option value="meat">🐠 Meat 🍗</option>
+                            <option value="dairy">🥛 Dairy 🧀</option>
+                            <option value="carbs">🍞 Carbs 🍝</option>
+                            <option value="snack">🍨 Snack 🍩</option>
+                            <option value="alcohol">🍺 Drink ☕</option>
                     </select>
                 </div>
             </div>
@@ -128,6 +129,8 @@ function ItemForm(){
                                 <span className="label-emoji">🍖</span>
                                 <input
                                     value={protein}
+                                    type="number"
+                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="protein"
                                     className="quad-form-input"
@@ -145,6 +148,8 @@ function ItemForm(){
                                 <span className="label-emoji">🍔</span>
                                 <input
                                     value={fat}
+                                    type="number"
+                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="fat"
                                     className="quad-form-input"
@@ -162,6 +167,8 @@ function ItemForm(){
                                 <span className="label-emoji">🍚</span>
                                 <input
                                     value={carbs}
+                                    type="number"
+                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="carbs"
                                     className="quad-form-input"
@@ -179,6 +186,8 @@ function ItemForm(){
                                 <span className="label-emoji">🍭</span>
                                 <input
                                     value={sugar}
+                                    type="number"
+                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="sugar"
                                     className="quad-form-input"
@@ -190,17 +199,24 @@ function ItemForm(){
             </div>
 
 
-            <div>
-                <span className="label-emoji">💸</span>
-                <label>Price: $</label>
-                <input
-                    value={price}
-                    onChange={e => onChange(e)}
-                    name="price"
-                    className="formInput"
-                />
+            <div className="col form-field" id="price-field">
+                <div className="row">
+                    <span id="price-label">💸</span>
+                    <input
+                        value={price}
+                        type="number"
+                        min="0.00"
+                        onChange={e => onChange(e)}
+                        name="price"
+                        className="formInput"
+                        id="price-input"
+                    />
+                </div>
             </div>
-            <button type="submit">Submit</button>
+
+            <div className="row">
+                <button type="submit" className="submit-button">+</button>
+            </div>
         </form>
     )
 }

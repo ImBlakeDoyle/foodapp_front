@@ -45,14 +45,9 @@ input{
 }
 label{
   display: block;
+  margin-bottom: 0;
 }
 
-/* .container{
-  display: flex;
-  flex-wrap: wrap;
-  display: grid;
-  margin: 50px 15px;
-} */
 
 @keyframes App-logo-spin {
   from {
@@ -111,7 +106,7 @@ label{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 50px 0;
 }
 
 .form-container{
@@ -166,4 +161,31 @@ label{
   border-radius: 10px;
   padding-left: 10px;
   width: 70px;
+}
+
+#price-label{
+  font-size: 2.5em;
+  padding-right: 5px;
+}
+
+#price-input{
+  font-size: 1.55em;
+  width: 150px;
+}
+
+#price-field{
+  margin-top: 100px;
+  margin-left: -30px;
+}
+
+.submit-button{
+  margin: auto;
+  width: 150px;
+  height: 60px;
+  background-color: rgb(28, 190, 28);
+  color: rgb(213, 250, 191);
+  font-size: 2em;
+  font-weight: bold;
+  border: 3px solid rgb(20, 156, 20);
+  border-radius: 10px;
 }
