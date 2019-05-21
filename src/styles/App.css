@@ -24,7 +24,8 @@
 }
 
 html{
-  overflow: hidden;
+  overflow: auto;
+  height: 100%;
 }
 
 body {
@@ -111,6 +112,11 @@ label{
 
 .form-container{
   justify-content: flex-start;
+  /* padding-top: 1px; */
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.3);
 }
 
 #name-field{
@@ -119,6 +125,7 @@ label{
 #category-field{
   width: 200px;
   text-align-last: center;
+  background-color: rgb(250, 244, 194);
 }
 
 .weight-form{

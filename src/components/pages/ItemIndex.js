@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import '../../styles/Index.css'
 
 function ItemIndex(){
     const [allItems, addItem] = useState([{}]);
@@ -19,12 +20,12 @@ function ItemIndex(){
                 return(
                     <ul key={index}>
                         <strong>{item.name}</strong>
-                        <li><p>Price: {item.price}</p></li>
-                        <li><p>Protein: {item.protein}</p></li>
-                        <li><p>Carbs: {item.carbs}</p></li>
-                        <li><p>Fat: {item.fat}</p></li>
-                        <li><p>Sugar: {item.sugar}</p></li>
-                        <li><p>Calories: {item.calories}</p></li>
+                        <li><p className="itemlist">Price: {item.price}</p></li>
+                        <li><p className="itemlist">Protein: {item.protein}</p></li>
+                        <li><p className="itemlist">Carbs: {item.carbs}</p></li>
+                        <li><p className="itemlist">Fat: {item.fat}</p></li>
+                        <li><p className="itemlist">Sugar: {item.sugar}</p></li>
+                        <li><p className="itemlist">Calories: {item.calories}</p></li>
                     </ul>
                 );
             })}

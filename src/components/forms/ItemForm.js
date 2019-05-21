@@ -98,7 +98,6 @@ function ItemForm(){
                             <input
                                 value={weight}
                                 type="number"
-                                min="0"
                                 onChange={e => onChange(e)}
                                 name="weight"
                                 className="dual-form-input"
@@ -130,7 +129,6 @@ function ItemForm(){
                                 <input
                                     value={protein}
                                     type="number"
-                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="protein"
                                     className="quad-form-input"
@@ -149,7 +147,6 @@ function ItemForm(){
                                 <input
                                     value={fat}
                                     type="number"
-                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="fat"
                                     className="quad-form-input"
@@ -168,7 +165,6 @@ function ItemForm(){
                                 <input
                                     value={carbs}
                                     type="number"
-                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="carbs"
                                     className="quad-form-input"
@@ -187,7 +183,6 @@ function ItemForm(){
                                 <input
                                     value={sugar}
                                     type="number"
-                                    min="0.00"
                                     onChange={e => onChange(e)}
                                     name="sugar"
                                     className="quad-form-input"
@@ -205,7 +200,6 @@ function ItemForm(){
                     <input
                         value={price}
                         type="number"
-                        min="0.00"
                         onChange={e => onChange(e)}
                         name="price"
                         className="formInput"
