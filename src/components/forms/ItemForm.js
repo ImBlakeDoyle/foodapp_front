@@ -22,13 +22,14 @@ function ItemForm(){
     async function onFormSubmit(){
         await axios.post("http://localhost:3000/item/new", formData)
         .then(response => console.log(response))
+        .then(alert("item added"))
         .catch(err => console.log(err));
     }
 
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value})
 
     return(
-        <form onSubmit={onFormSubmit} className="container form-container">
+        <form onSubmit={onFormSubmit} className="container form-container" id="full-form">
             <div className="container form-field">
                 <div className="row">
                     <label className="form-title">Name</label>

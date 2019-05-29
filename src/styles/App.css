@@ -119,6 +119,11 @@ label{
   box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.3);
 }
 
+#full-form{
+  margin-left: 10px;
+  width: 800px;
+}
+
 #name-field{
   width: 200px;
 }
