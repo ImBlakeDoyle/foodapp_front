@@ -6,6 +6,23 @@ p{
     font-size: 10px;
 }
 
-/* .itemlist{
-    margin: 0;
-} */
+.itemList{
+    display: flex;
+    height: 4em;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+}
+
+.itemProp{
+    width: 200px;
+
+}
+
+.itemTitle{
+    font-weight: bold;
+}
+
+.heading{
+    text-align: center;
+}
