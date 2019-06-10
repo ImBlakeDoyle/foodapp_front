@@ -42,6 +42,12 @@ class ItemIndex extends Component{
         fetchItems();
     }
 
+    onAddQuantity = async(item) => {
+        const { _id } = item;
+        const newQuantity = item.quantity += 1;
+        await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity});
+    }
+
     render() {
         const { items } = this.props;
 
@@ -58,6 +64,7 @@ class ItemIndex extends Component{
                                 <div className="itemProp">🍔 {item.fat}g fat</div>
                                 <div className="itemProp">🍭 {item.sugar}g sugar</div>
                                 <div className="itemProp">Calories: {item.calories}</div>
+                                <button className="itemProp" onClick={() => this.onAddQuantity(item)}>+</button>
                             </div>
                     );
                 })}
