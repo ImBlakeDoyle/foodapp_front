@@ -43,9 +43,11 @@ class ItemIndex extends Component{
     }
 
     onAddQuantity = async(item) => {
+        const { fetchItems } = this.props;
         const { _id } = item;
         const newQuantity = item.quantity += 1;
-        await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity});
+        await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity})
+        .then(() => {fetchItems()});
     }
 
     render() {
