@@ -45,31 +45,57 @@ class ItemIndex extends Component{
     onAddQuantity = async(item) => {
         const { fetchItems } = this.props;
         const { _id } = item;
-        const newQuantity = item.quantity += 1;
+        let newQuantity = item.quantity += 1;
         await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity})
         .then(() => {fetchItems()});
+    }
+    onRemoveQuantity = async(item) => {
+        const { fetchItems } = this.props;
+        const { _id } = item;
+        let newQuantity = item.quantity -= 1;
+        await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity})
+        .then(() => {fetchItems()});
+    }
+    calcIndividualPrice = (price, quantity) => {
+        let singlePrice = price/quantity;
+        return singlePrice.toFixed(2);
     }
 
     render() {
         const { items } = this.props;
-
         return(
             <div>
                 <h1 className="heading">All Items</h1>
-                {items.map((item, index) => {
-                    return(
-                            <div key={index} className="itemList">
-                                <div className="itemProp itemTitle">{item.name} {item.weight}{item.measurement} x {item.quantity}</div>
-                                <div className="itemProp">${item.price} ea</div>
-                                <div className="itemProp">🍖 {item.protein}g protein</div>
-                                <div className="itemProp">🍚 {item.carbs}g carbs</div>
-                                <div className="itemProp">🍔 {item.fat}g fat</div>
-                                <div className="itemProp">🍭 {item.sugar}g sugar</div>
-                                <div className="itemProp">Calories: {item.calories}</div>
-                                <button className="itemProp" onClick={() => this.onAddQuantity(item)}>+</button>
-                            </div>
-                    );
-                })}
+                <table className="container">
+                    <tbody>
+                        <tr>
+                            <th>Item</th>
+                            <th>💵 Price / ea</th>
+                            <th>🍖 Protein</th>
+                            <th>🍚 Carbs</th>
+                            <th>🍔 Fat</th>
+                            <th>🍭 Sugar</th>
+                            <th>🔬 Calories</th>
+                            <th>📟 Quantity</th>
+                        </tr>
+                    {items.map((item, index) => {
+                        return(  
+                                <tr key={index}>
+                                    <td>{item.name} {item.weight}{item.measurement}</td>
+                                    <td>${this.calcIndividualPrice(item.price, item.quantity)}</td>
+                                    <td>{item.protein}g </td>
+                                    <td>{item.carbs}g </td>
+                                    <td>{item.fat}g </td>
+                                    <td>{item.sugar}g </td>
+                                    <td>{item.calories}</td>
+                                    <td>{item.quantity}</td>
+                                    <td><button onClick={() => this.onAddQuantity(item)}>+</button></td>
+                                    <td><button onClick={() => this.onRemoveQuantity(item)}>-</button></td>
+                                </tr>
+                        );
+                    })}
+                    </tbody>
+                </table>
             </div>
         )
     }
