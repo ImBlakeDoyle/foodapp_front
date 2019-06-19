@@ -30,7 +30,7 @@ function ItemForm(){
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value})
 
     return(
-        <form onSubmit={onFormSubmit} className="container form-container" id="full-form">
+        <form onSubmit={onFormSubmit} className="container form-container" >
             <div className="container form-field">
                 <div className="row">
                     <label className="form-title">Name</label>

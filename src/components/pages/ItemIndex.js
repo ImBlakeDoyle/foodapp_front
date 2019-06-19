@@ -42,23 +42,21 @@ class ItemIndex extends Component{
         fetchItems();
     }
 
-    onAddQuantity = async(item) => {
-        const { fetchItems } = this.props;
-        const { _id } = item;
-        let newQuantity = item.quantity += 1;
-        await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity})
-        .then(() => {fetchItems()});
-    }
     onRemoveQuantity = async(item) => {
         const { fetchItems } = this.props;
         const { _id } = item;
         let newQuantity = item.quantity -= 1;
+        console.log(newQuantity);
         await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity})
         .then(() => {fetchItems()});
     }
-    calcIndividualPrice = (price, quantity) => {
-        let singlePrice = price/quantity;
-        return singlePrice.toFixed(2);
+
+    onNameChange = async(item) => {
+        const { fetchItems } = this.props;
+        const { _id } = item;
+        let newName = "BLAKE";
+        await axios.patch(`http://localhost:3000/item/${_id}`, {name: newName})
+        .then(() => {fetchItems()})
     }
 
     render() {
@@ -82,15 +80,13 @@ class ItemIndex extends Component{
                         return(  
                                 <tr key={index}>
                                     <td>{item.name} {item.weight}{item.measurement}</td>
-                                    <td>${this.calcIndividualPrice(item.price, item.quantity)}</td>
+                                    <td>${item.price}</td>
                                     <td>{item.protein}g </td>
                                     <td>{item.carbs}g </td>
                                     <td>{item.fat}g </td>
                                     <td>{item.sugar}g </td>
                                     <td>{item.calories}</td>
                                     <td>{item.quantity}</td>
-                                    <td><button onClick={() => this.onAddQuantity(item)}>+</button></td>
-                                    <td><button onClick={() => this.onRemoveQuantity(item)}>-</button></td>
                                 </tr>
                         );
                     })}
