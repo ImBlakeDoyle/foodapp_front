@@ -44,23 +44,24 @@ class ItemIndex extends Component{
 
     onRemoveQuantity = async(item) => {
         const { fetchItems } = this.props;
-        const { _id } = item;
-        let newQuantity = item.quantity -= 1;
+        let { _id } = item;
+        console.log(item.name);
+        console.log(item);
+        console.log(`ID is ${_id}`);
+        console.log(`Quantity is ${item.quantity}`);
+        let newQuantity = item.quantity -=1;
         console.log(newQuantity);
         await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity})
         .then(() => {fetchItems()});
     }
 
-    onNameChange = async(item) => {
-        const { fetchItems } = this.props;
-        const { _id } = item;
-        let newName = "BLAKE";
-        await axios.patch(`http://localhost:3000/item/${_id}`, {name: newName})
-        .then(() => {fetchItems()})
-    }
-
     render() {
         const { items } = this.props;
+        let totalValue = 0;
+
+        items.forEach(item => {
+            totalValue += (item.price * item.quantity);
+        })
         return(
             <div>
                 <h1 className="heading">All Items</h1>
@@ -68,7 +69,8 @@ class ItemIndex extends Component{
                     <tbody>
                         <tr>
                             <th>Item</th>
-                            <th>💵 Price / ea</th>
+                            <th>💵 Price/ea</th>
+                            <th>⚖️ Weight/ea</th>
                             <th>🍖 Protein</th>
                             <th>🍚 Carbs</th>
                             <th>🍔 Fat</th>
@@ -78,20 +80,23 @@ class ItemIndex extends Component{
                         </tr>
                     {items.map((item, index) => {
                         return(  
-                                <tr key={index}>
-                                    <td>{item.name} {item.weight}{item.measurement}</td>
-                                    <td>${item.price}</td>
-                                    <td>{item.protein}g </td>
-                                    <td>{item.carbs}g </td>
-                                    <td>{item.fat}g </td>
-                                    <td>{item.sugar}g </td>
-                                    <td>{item.calories}</td>
-                                    <td>{item.quantity}</td>
-                                </tr>
+                            <tr key={index}>
+                                <td>{item.name}</td>
+                                <td>${item.price}</td>
+                                <td>{item.weight}{item.measurement}</td>
+                                <td>{item.protein}g </td>
+                                <td>{item.carbs}g </td>
+                                <td>{item.fat}g </td>
+                                <td>{item.sugar}g </td>
+                                <td>{item.calories}</td>
+                                <td>{item.quantity}</td>
+                                <td><button onClick={() => {this.onRemoveQuantity(item)}}>-</button></td>
+                            </tr>
                         );
-                    })}
+                    })}       
                     </tbody>
                 </table>
+                <h3>Total value: ${totalValue}</h3>
             </div>
         )
     }
