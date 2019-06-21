@@ -50,7 +50,7 @@ class ItemIndex extends Component{
         console.log(`ID is ${_id}`);
         console.log(`Quantity is ${item.quantity}`);
         let newQuantity = item.quantity -=1;
-        console.log(newQuantity);
+        console.log(`New quantity is ${newQuantity}`);
         await axios.patch(`http://localhost:3000/item/${_id}`, {quantity: newQuantity})
         .then(() => {fetchItems()});
     }
