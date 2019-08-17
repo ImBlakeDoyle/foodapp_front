@@ -31,11 +31,20 @@ function RecipeForm(){
         .catch(err => console.log(err));
     }
 
-    const onChange = e => setFormData({...formData, [e.target.name]: e.target.value})
+    const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
+
+    function addIngredient(){
+        setFormData({ingredients: [...formData.ingredients, ""]})
+        console.log(formData.ingredients);
+    }
+
+    const handleChange = (e, index) => {
+        console.log(e.target.value);
+        setFormData({...formData, [formData.ingredients[index]]: e.target.value});
+    }
 
     return(
         <div>
-            <p>Ingredients are: {formData.ingredients}</p>
             <form onSubmit={onFormSubmit}>
                 <div>
                     <label>Name</label>
@@ -44,13 +53,42 @@ function RecipeForm(){
                     onChange={e => onChange(e)}
                     name="name"/>
                 </div>
+
                 <div>
+                    {formData.ingredients.map((ig, index) => {
+                        return(
+                            <div key={index}>
+                                <input 
+                                value={formData[index]}
+                                onChange={(e)=>handleChange(e, index)}
+                                />
+                            </div>
+                        )
+                    })}
+                </div>
+                <button 
+                type="button" 
+                onClick={() => addIngredient()}
+                >Add Ingredient
+                </button>
+
+                
+
+
+                {/* <div>
                     <label>Ingredients</label>
                     <input 
                     value={formData.ingredient}
                     onChange={e => onChange(e)}
                     name="ingredient"/>
                 </div>
+                <div>
+                    <button
+                    onClick={addIngredientHandler}
+                    >Add ingredient</button>
+                </div> */}
+
+
                 <div>
                     <label>Method</label>
                     <input 
